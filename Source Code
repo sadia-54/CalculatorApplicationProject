@@ -267,14 +267,94 @@ public class CalculatorApplication implements ActionListener{
     
      @Override
     public void actionPerformed(ActionEvent e) {
-        Object object = e.getSource();
+        Object source = e.getSource();
         if(source == onRadioButton)
         {
             enable();
         }
+         else if(source == offRadioButton)
+        {
+            disable();
+        }
+        else if(source == buttonClear)
+        {
+            label.setText("");
+            textField.setText("");
+        }
+        else if(source == buttonDelete)
+        {
+            int length = textField.getText().length();
+            int number = length - 1;
+            if(length>0)
+            {
+                StringBuilder back = new StringBuilder(textField.getText());
+                back.deleteCharAt(number);
+                textField.setText(back.toString());
+            }
+            if(textField.getText().endsWith(""))
+            {
+                label.setText("");
+            }
+        }
     }
+    
+    
     public void enable()
     {
+        onRadioButton.setEnabled(false);
+        offRadioButton.setEnabled(true);
+        textField.setEnabled(true);
+        label.setEnabled(true);
+        buttonZero.setEnabled(true);
+        buttonOne.setEnabled(true);
+        buttonTwo.setEnabled(true);
+        buttonThree.setEnabled(true);
+        buttonFour.setEnabled(true);
+        buttonSix.setEnabled(true);
+        buttonFive.setEnabled(true);
+        buttonSeven.setEnabled(true);
+        buttonEight.setEnabled(true);
+        buttonNine.setEnabled(true);
+        buttonDot.setEnabled(true);
+        buttonDelete.setEnabled(true);
+        buttonClear.setEnabled(true);
+        buttonEqual.setEnabled(true);
+        buttonSquare.setEnabled(true);
+        buttonSquareRoot.setEnabled(true);
+        buttonReciprocal.setEnabled(true);
+        buttonAddition.setEnabled(true);
+        buttonSubtraction.setEnabled(true);
+        buttonMultiplication.setEnabled(true);
+        buttonDivision.setEnabled(true);
 
+    }
+    
+     public void disable()
+    {
+        onRadioButton.setEnabled(true);
+        offRadioButton.setEnabled(false);
+        textField.setEnabled(false);
+        label.setEnabled(false);
+        buttonZero.setEnabled(false);
+        buttonOne.setEnabled(false);
+        buttonTwo.setEnabled(false);
+        buttonThree.setEnabled(false);
+        buttonFour.setEnabled(false);
+        buttonSix.setEnabled(false);
+        buttonFive.setEnabled(false);
+        buttonSeven.setEnabled(false);
+        buttonEight.setEnabled(false);
+        buttonNine.setEnabled(false);
+        buttonDot.setEnabled(false);
+        buttonDelete.setEnabled(false);
+        buttonClear.setEnabled(false);
+        buttonEqual.setEnabled(false);
+        buttonSquare.setEnabled(false);
+        buttonSquareRoot.setEnabled(false);
+        buttonReciprocal.setEnabled(false);
+        buttonAddition.setEnabled(false);
+        buttonSubtraction.setEnabled(false);
+        buttonMultiplication.setEnabled(false);
+        buttonDivision.setEnabled(false);
     }
 }
